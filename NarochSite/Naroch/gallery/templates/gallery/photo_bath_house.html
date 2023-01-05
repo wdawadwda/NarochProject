@@ -1,0 +1,17 @@
+{% extends 'gallery/layout_photo.html' %}
+{% load static %}
+
+{% block TitleCategory %}
+<div>Баня</div>
+{% endblock TitleCategory %}
+
+{% block KontentPhoto %}
+<div class="container">
+    <div class="np_images">
+        {% for post in page_obj %}
+            <img class="np_image" src="{{ post.image.url }}" alt="">
+        {% endfor %}
+    </div><!-- np_images -->
+
+</div><!-- container -->
+{% endblock KontentPhoto %}

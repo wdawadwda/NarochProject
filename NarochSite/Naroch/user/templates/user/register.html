@@ -1,0 +1,27 @@
+{% extends 'main/layout_2.html' %}
+{% load static %}
+
+{% block title %}
+<title>Регистрация</title>
+{% endblock title %}
+
+{% block kontent %}
+
+<div class="reviews_main">
+    {% include 'main/messages.html' %}
+    <div class="container">
+        {% include 'user/include/nav_reg.html' %}
+        <div class="b_unity_title b_unity_title--register">
+            <div class="b_title">Регистрация:</div>
+        </div><!--b_unity_title-->
+
+        <form method="post" class="form_send_data register_form" id="register_form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn--brown" type="submit">Регистрация</button>
+        </form>
+
+    </div><!--container-->
+</div><!--reviews_main-->
+
+{% endblock kontent %}

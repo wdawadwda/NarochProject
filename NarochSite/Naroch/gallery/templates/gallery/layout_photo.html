@@ -1,0 +1,129 @@
+{% extends 'main/layout_2.html' %}
+{% load static %}
+
+{% block title %}
+<title>Фото</title>
+{% endblock title %}
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js" integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    
+{% block kontent %}
+<!-- SVG for gallery -->
+
+<!-- Close -->
+<g>
+    <svg style="display: none;">
+        <symbol id="close" viewBox="0 0 52.001 52.001">
+            <path d="M47.743,41.758L33.955,26.001l13.788-15.758c2.343-2.344,2.343-6.143,0-8.486
+                c-2.345-2.343-6.144-2.342-8.486,0.001L26,16.91L12.743,1.758C10.4-0.584,6.602-0.585,4.257,1.757
+                c-2.343,2.344-2.343,6.143,0,8.486l13.788,15.758L4.257,41.758c-2.343,2.343-2.343,6.142-0.001,8.485
+                c2.344,2.344,6.143,2.344,8.487,0L26,35.091l13.257,15.152c2.345,2.344,6.144,2.344,8.487,0
+                C50.086,47.9,50.086,44.101,47.743,41.758z"/>
+        </symbol>
+    </svg>
+</g>
+
+<!-- Left -->
+<g>
+    <svg style="display: none;">
+        <symbol id="left" viewBox="0 0 612 612">
+            <path d="M124.172,305.975L342.365,87.781c20.079-20.079,20.079-52.644,0-72.722c-20.079-20.079-52.644-20.079-72.723,0
+                    L15.062,269.639c-20.079,20.079-20.079,52.644,0,72.723l254.58,254.58c20.079,20.078,52.644,20.078,72.723,0
+                    c20.079-20.079,20.079-52.644,0-72.723L124.172,305.975z M431.395,305.694l165.371-165.982c20.308-20.359,20.308-53.408,0-73.768
+                    c-20.309-20.359-53.204-20.359-73.513,0L321.139,268.823c-20.309,20.359-17.047,35.266,3.032,55.345L523.253,545.47
+                    c20.309,20.359,53.204,20.359,73.513,0c20.308-20.359,20.308-53.408,0-73.768L431.395,305.694z"/>
+        </symbol>
+    </svg>
+</g>
+
+<!-- Right -->
+<g>
+    <svg style="display: none;">
+        <symbol id="right" viewBox="0 0 612.02 612.02">
+            <path d="M596.96,269.674L342.381,15.094c-20.079-20.079-52.644-20.079-72.723,0c-20.079,20.079-20.079,52.644,0,72.723
+            L487.852,306.01L269.658,524.202c-20.079,20.079-20.079,52.644,0,72.723s52.644,20.079,72.723,0L596.96,342.346
+            C617.039,322.317,617.039,289.753,596.96,269.674z M290.858,254.258L88.744,41.238c-20.309-21.378-53.204-21.378-73.513,0
+            s-20.309,56.058,0,77.462l165.371,174.289L15.231,467.278c-20.309,21.379-20.309,56.083,0,77.462s53.204,21.379,73.513,0
+            L290.858,331.72C311.167,310.342,311.167,275.662,290.858,254.258z"/>
+        </symbol>
+    </svg>
+</g>
+<g>
+                <!-- Overlay -->
+<div class="overlay"></div>
+
+        <!-- Modal Window -->
+
+        <!-- Окно с картиной -->
+    <div class="modal modal--main" id="modal_window">
+        <!-- Закрыть -->
+        <div class="close_btn">
+            <svg class="close_svg">
+                <use class="modal_close" xlink:href="#close"></use>
+            </svg>
+        </div>
+
+        <!-- Картинка -->
+        <img class="active--image" id="active--image" src="" alt=""><!-- Картинка через JS -->
+    </div><!-- modal--main -->
+
+
+    <!-- Стрелка влево -->
+    <div class="modal modal--side modal--side--left" id="modal--side--left">
+        <div class="side_btn side_btn--left">
+            <svg class="side_svg side_svg--left">
+                <use class="side_left" xlink:href="#left"></use>
+            </svg>
+        </div><!-- side_btn -->
+    </div><!-- modal--left -->
+
+
+    <!-- Стрелка вправо -->
+    <div class="modal modal--side modal--side--right" id="modal--side--right">
+
+        <div class="side_btn side_btn--right">
+            <div class="side_btn">
+                <svg class="side_svg">
+                    <use class="side_right" xlink:href="#right"></use>
+                </svg>
+            </div><!-- side_btn -->
+        </div>
+    </div><!-- modal--right" -->
+</g>
+
+                <!-- Photo -->
+    <div class="np_main">
+        <div class="container">
+                <!-- Photo_Nav -->
+            <div class="btn_photo_unity">
+                <a class="btn btn--brown btn--brown--photo" href="{% url 'galery' %}">Галерея</a>
+                <a class="btn btn--brown btn--brown--photo" href="{% url 'outside' %}">Окрестности</a>
+                <a class="btn btn--brown btn--brown--photo" href="{% url 'area' %}">Участок</a>
+                <a class="btn btn--brown btn--brown--photo" href="{% url 'first_house' %}">Первый дом</a>
+                <a class="btn btn--brown btn--brown--photo" href="{% url 'second_house' %}">Второй дом</a>
+                <a class="btn btn--brown btn--brown--photo" href="{% url 'bath_house' %}">Баня</a>
+            </div><!-- Photo_Nav -->
+        </div>
+
+    
+        <div class="container">
+            <div class="b_unity_title">
+                <div class="b_title">
+                    {% block TitleCategory %}
+
+                    {% endblock TitleCategory %}
+                </div><!-- b_title -->
+            </div><!-- b_unity_title -->
+        </div><!-- container -->
+
+                <!-- Gallery -->
+        <div class="np_gallery">
+            {% block KontentPhoto %}
+            
+            {% endblock KontentPhoto %}
+        {% include 'user/include/pagination.html' %}
+        </div><!-- np_galery -->
+    </div><!-- np_main -->
+    <script src="{% static 'gallery/js/app_gallery.js' %}"></script>
+{% endblock kontent %}
