@@ -1,0 +1,24 @@
+{% extends 'main/layout_2.html' %}
+{% load static %}
+
+{% block title %}
+<title>Модерация комментариев</title>
+{% endblock title %}
+
+{% block kontent %}
+
+<div class="reviews_main">
+    <div class="container">
+        {% for i in rev %}
+            <div class="comment_unity">
+                <h3>{{ i.username }}:</h3>
+                <p>{{ i.text }}</p>
+                <time>{{ i.reviews_date }}</time>
+
+            </div>
+        {% endfor %}
+
+    </div><!--container-->
+</div><!--reviews_main-->
+
+{% endblock kontent %}

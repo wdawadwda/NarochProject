@@ -1,0 +1,24 @@
+<br><br>
+
+<div class="pagination">
+    <span class="nav_link nav_link--pagination">
+        {% if page_obj.has_previous %}
+        <span class="pagination--inner">
+            <a class="nav_link nav_link--reg nav_link--pagination--inner" href="?page=1">| Первая |</a>
+            <a class="nav_link nav_link--reg nav_link--pagination--inner" href="?page={{ page_obj.previous_page_number }}">| Предыдущая |</a>
+        </span>
+        {% endif %}
+
+        <span class="nav_link--reg pagination--inner pagination--inner--text">
+            Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+        <span class="pagination--inner">
+            <a class="nav_link nav_link--reg nav_link--pagination--inner" href="?page={{ page_obj.next_page_number }}">| Следующая |</a>  
+            <a class="nav_link nav_link--reg nav_link--pagination--inner" href="?page={{ page_obj.paginator.num_pages }}">| Последняя |</a> 
+        </span>
+        {% endif %}
+    </span>
+</div>
+<br>

@@ -1,0 +1,11 @@
+{% if request.user.is_staff or request.user.is_superuser %}
+<div class="nav_reg nav_reg_admin">
+    <span class="nav_link nav_link--reg nav_link--reg--login">
+        <a href="{% url 'admin:index' %}" class="nav_link nav_link--reg">Админка Django</a>
+    </span>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <span class="nav_link nav_link--reg nav_link--reg--login">
+        <a href="{% url 'admin_for_staff' %}" class="nav_link nav_link--reg">Админка персонала</a>
+    </span>&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+{% endif %}

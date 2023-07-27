@@ -1,0 +1,32 @@
+{% extends 'main/layout_2.html' %}
+{% load static %}
+
+{% block title %}
+<title>Модерация галереи</title>
+{% endblock title %}
+
+{% block kontent %}
+<div class="container">
+    <div class="reviews_main">
+        <div class="btn_admin_wrapper">
+            <a class="btn btn--brown btn-admin" href="{% url 'create_photo' %}">Добавить Фото</a>
+            <a href="{% url 'admin_for_staff' %}" class="btn btn--brown btn-admin">Главная админки</a>
+            <a href="{% url 'home' %}" class="btn btn--brown btn-admin">На главную</a>
+        </div>
+        {% if gallery_all %}
+        {% for e in gallery_all %}
+            <div class="moderation_wrapper">
+                <span class="moderation_wrapper__text">Название:</span>
+                <p class="moderation_wrapper__text">{{ e.name }}</p>
+                <img src="/media/{{ e.image }}" class="moderation_wrapper-img"></img><br>
+                <span class="moderation_wrapper__text">Категория:</span>
+                <p class="moderation_wrapper__text">{{ e.category }}</p>
+                <a href="{% url 'gallery_detail' e.id %}"><button class="btn btn--brown" type="submit">Редактировать</button></a>
+            </div>
+        {% endfor %}
+        {% else %}
+            <p>Фото нет</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock kontent %}

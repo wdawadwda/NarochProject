@@ -1,0 +1,27 @@
+{% extends 'main/layout_2.html' %}
+{% load static %}
+
+{% block title %}
+<title>Модерация комментариев</title>
+{% endblock title %}
+
+{% block kontent %}
+{% include 'main/messages.html' %}
+<div class="container">
+    <div class="reviews_main">
+        <div class="btn_admin_wrapper">
+            <a href="{% url 'admin_for_staff' %}" class="btn btn--brown btn-admin">Главная админки</a>
+            <a href="{% url 'comment_moderation' %}" class="btn btn--brown btn-admin">К комментариям</a>
+            <a href="{% url 'home' %}" class="btn btn--brown btn-admin">На главную</a>
+        </div>
+        <div class="b_unity_title b_unity_title--register">
+            <div class="b_title">{{ comment.reviews_date }}</div>
+        </div>
+        <span>Имя:</span><p>{{ comment.username }}</p>
+        <span>Текст:<p>{{ comment.text }}</p>
+        <span>Категория:</span><p>{{ comment.category }}</p>
+            <a href="{% url 'comment_update' comment.id %}" class="btn btn--brown btn-admin">Редактировать | Верефицировать</a><br>
+            <a href="{% url 'comment_delite' comment.id %}" class="btn btn--brown btn-admin">Удалить</a>
+    </div>
+</div>
+{% endblock kontent %}

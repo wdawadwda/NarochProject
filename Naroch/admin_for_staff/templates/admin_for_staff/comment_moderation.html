@@ -1,0 +1,33 @@
+{% extends 'main/layout_2.html' %}
+{% load static %}
+
+{% block title %}
+<title>Модерация комментариев</title>
+{% endblock title %}
+
+{% block kontent %}
+<div class="container">
+    <div class="reviews_main">
+        <div class="btn_admin_wrapper">
+            <a class="btn btn--brown btn-admin" href="{% url 'create_comment' %}">Добавить комментарий</a>
+            <a href="{% url 'admin_for_staff' %}" class="btn btn--brown btn-admin">Главная админки</a>
+            <a href="{% url 'home' %}" class="btn btn--brown btn-admin">На главную</a>
+        </div>
+        {% if comments_all %}
+        {% for e in comments_all %}
+            <div class="moderation_wrapper" style="margin: 50px 0 50px 0;">
+                <span class="moderation_wrapper__text">Ник:</span>
+                <p class="moderation_wrapper__text">{{ e.username }}</p>
+                <span class="moderation_wrapper__text">Содержание:</span>
+                <p class="moderation_wrapper__text">{{ e.text }}</p>
+                <span class="moderation_wrapper__text">Категрия:</span>
+                <p class="moderation_wrapper__text">{{ e.category }}</p>
+                <a href="{% url 'comment_detail' e.id %}"><button class="btn btn--brown" type="submit">Редактировать Верифицировать</button></a>
+            </div>
+        {% endfor %}
+        {% else %}
+            <p>Комментариев нет</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock kontent %}
