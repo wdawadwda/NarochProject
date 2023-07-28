@@ -809,3 +809,7 @@ padding: 0%; margin-bottom: 1%; margin-top: 1%;}
 .moderation_wrapper{margin: 50px 0 50px 0;}
 .moderation_wrapper-img{width: 100%;}
 .moderation_wrapper__text{color: #573931;}
+@media (max-width: 767px){
+    .nav_reg_admin{display: flex; flex-direction: column;}
+    .btn_admin_wrapper{display: flex; flex-direction: column; justify-content: center; align-items: center;}
+}
